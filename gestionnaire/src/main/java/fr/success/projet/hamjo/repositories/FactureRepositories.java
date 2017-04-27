@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Collection;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 import fr.success.projet.hamjo.model.Facture;
 
@@ -11,7 +13,8 @@ public interface FactureRepositories extends CrudRepository<Facture, Serializabl
 
 	Facture findByNumFactureExterne(int num);
 
-	Collection<Facture> findByNomEnseigne(String nomEnseigne);
+	@RestResource(path = "by-enseigne")
+	Collection<Facture> findByNomEnseigne(@Param("nomEnseigne") String nomEnseigne);
 
 	Facture findByElement(String element);
 }
