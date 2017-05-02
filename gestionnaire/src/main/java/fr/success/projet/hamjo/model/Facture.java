@@ -40,6 +40,12 @@ public class Facture {
 		this.blob = blob;
 	}
 
+	public Facture(String nomEnseigne, String element) {
+		super();
+		this.nomEnseigne = nomEnseigne;
+		this.element = element;
+	}
+
 	public Facture(int numFactureExterne, String nomEnseigne, String lieu, String element, String blob,
 			String dateValidite, String dateAchat) {
 		super();
