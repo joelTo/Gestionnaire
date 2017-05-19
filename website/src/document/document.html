@@ -1,0 +1,72 @@
+<div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><span class="lead">Liste des documents </span></div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>name</th>
+                        <th>blob</th>
+                        <th width="100"></th>
+                        <th width="100"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="u in $ctrl.documents">
+                        <td>{{u.id}}</td>
+                        <td>{{u.name}}</td>
+                        <td>{{u.blob}}</td>
+                        <td><button type="button" ng-click="ctrl.editUser(u.id)" class="btn btn-success custom-width">Editer</button></td>
+                        <td><button type="button" ng-click="ctrl.removeUser(u.id)" class="btn btn-danger custom-width">Supprimer</button></td>
+                    </tr>
+                    </tbody>
+                </table>      
+            </div>
+        </div>
+</div>
+
+
+<form 
+    name="documentForm" novalidate ng-submit="$ctrl.saveDocument($ctrl.document)" class="well">
+
+    <div class="form-group">
+        <label for="name">Nom</label>
+        <input ng-model="$ctrl.document.name" 
+        
+            id="name" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="datevalidite">dateValidite</label>
+        <input ng-model="$ctrl.document.dateValidite" 
+            
+            id="dateValidite" type="text" class="form-control">
+    </div>
+     <div class="form-group">
+        <label for="blob">blob</label>
+        <input ng-model="$ctrl.document.blob" 
+            
+            id="blob" type="text" class="form-control">
+    </div>
+         <div class="form-group">
+        <label for="proprietaire">proprietaire</label>
+        <input ng-model="$ctrl.document.proprietaire" 
+             
+            id="proprietaire" type="text" class="form-control">
+    </div>
+        </div>
+         <div class="form-group">
+        <label for="categorie">categorie</label>
+        <input ng-model="$ctrl.document.categorie" 
+            
+            id="categorie" type="text" class="form-control">
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+
+    <a type="button" ng-href="/users" class="btn btn-default">Annuler</a>
+
+</form>

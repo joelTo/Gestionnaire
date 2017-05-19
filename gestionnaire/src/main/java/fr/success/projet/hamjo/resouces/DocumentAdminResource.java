@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.success.projet.hamjo.model.DocumentAdmin;
+import fr.success.projet.hamjo.model.Document;
 import fr.success.projet.hamjo.repositories.IDocumentadminRepositories;
 
 @RestController
@@ -20,18 +20,18 @@ public class DocumentAdminResource {
 	private IDocumentadminRepositories documentDao;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public List<DocumentAdmin> listAllDocumentAdmins() {
+	public List<Document> listAllDocumentAdmins() {
 		return documentDao.findAll();
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public void ajoutDocumentAdmin(@RequestBody DocumentAdmin DocumentAdmin) {
+	public void ajoutDocumentAdmin(@RequestBody Document documentAdmin) {
 		System.out.println("Je suis la ");
-		documentDao.save(DocumentAdmin);
+		documentDao.save(documentAdmin);
 	}
 
 	@RequestMapping(path = "/{id}", method = RequestMethod.GET)
-	public DocumentAdmin getDocumentAdmin(@PathVariable Integer id) {
+	public Document getDocumentAdmin(@PathVariable Integer id) {
 		return documentDao.findById(id);
 	}
 }

@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import fr.success.projet.hamjo.model.DocumentAdmin;
+import fr.success.projet.hamjo.model.Document;
 
-public interface IDocumentadminRepositories extends JpaRepository<DocumentAdmin, Serializable> {
-	DocumentAdmin findById(int id);
+public interface IDocumentadminRepositories extends JpaRepository<Document, Serializable> {
+	Document findById(int id);
 }
