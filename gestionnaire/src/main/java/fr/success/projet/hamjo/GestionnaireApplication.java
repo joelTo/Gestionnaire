@@ -10,12 +10,8 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import fr.success.projet.hamjo.model.Document;
-import fr.success.projet.hamjo.model.Facture;
-import fr.success.projet.hamjo.model.UserJo;
 import fr.success.projet.hamjo.repositories.IDocumentadminRepositories;
 import fr.success.projet.hamjo.repositories.IFactureRepositories;
-import fr.success.projet.hamjo.repositories.IUserRepositories;
 
 /**
  * Application PizzeriaApp démarré via Spring Boot.
@@ -66,21 +62,18 @@ public class GestionnaireApplication {
 	@Autowired
 	private IDocumentadminRepositories documentResource;
 
-	@Autowired
-	private IUserRepositories UserResources;
-
 	@PostConstruct
 	public void setDatabase() {
 
-		factureResource.save(new Facture("DARTY", "Lave", "1111111"));
-		factureResource.save(new Facture("DARTY", "Machine", "11122211"));
-		factureResource.save(new Facture("DARTY", "piscine", "1155511"));
-
-		documentResource.save(new Document("CARTE_IDENTITE", "33"));
-		documentResource.save(new Document("PASSEPORT", "444"));
-
-		UserResources.save(new UserJo("joel", 26));
-		UserResources.save(new UserJo("Edwina", 26));
+		// factureResource.save(new Facture("DARTY", "Lave", "1111111"));
+		// factureResource.save(new Facture("DARTY", "Machine", "11122211"));
+		// factureResource.save(new Facture("DARTY", "piscine", "1155511"));
+		//
+		// documentResource.save(new DocAdmin("CARTE_IDENTITE", "33"));
+		// documentResource.save(new DocAdmin("PASSEPORT", "444"));
+		//
+		// UserResources.save(new UserJo("joel", 26));
+		// UserResources.save(new UserJo("Edwina", 26));
 	}
 
 }

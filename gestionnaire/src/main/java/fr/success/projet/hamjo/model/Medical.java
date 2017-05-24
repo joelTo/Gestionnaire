@@ -14,8 +14,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "document")
-public class Document {
+@Table(name = "medical")
+public class Medical {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +31,10 @@ public class Document {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "date")
 	private Date date;
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "type", nullable = false)
+	private TypeMedical type;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "proprietaire", nullable = false)

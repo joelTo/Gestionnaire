@@ -14,9 +14,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "document")
-public class Document {
-
+@Table(name = "banqueassurancemaison")
+public class BanqueAssuranceMaison {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
@@ -32,7 +31,15 @@ public class Document {
 	@Column(name = "date")
 	private Date date;
 
+	@Column(name = "magasin", length = 5000, nullable = false)
+	private String magasin;
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "type", nullable = false)
+	private TypeDocument type;
+
 	@Enumerated(EnumType.STRING)
 	@Column(name = "proprietaire", nullable = false)
 	private Proprietaire proprietaire;
+
 }
