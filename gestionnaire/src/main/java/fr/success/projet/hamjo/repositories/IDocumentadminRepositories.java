@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import fr.success.projet.hamjo.model.DocAdmin;
 
 public interface IDocumentadminRepositories extends JpaRepository<DocAdmin, Serializable> {
-	DocAdmin findById(int id);
+	DocAdmin findById(Integer id);
 }

@@ -39,4 +39,65 @@ public class DocAdmin {
 	@Column(name = "proprietaire", nullable = false)
 	private Proprietaire proprietaire;
 
+	public DocAdmin() {
+		super();
+	}
+
+	public DocAdmin(String nom, String urlImage, Date date, Date peremption, Proprietaire proprietaire) {
+		super();
+		this.nom = nom;
+		this.urlImage = urlImage;
+		this.date = date;
+		this.peremption = peremption;
+		this.proprietaire = proprietaire;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getUrlImage() {
+		return urlImage;
+	}
+
+	public void setUrlImage(String urlImage) {
+		this.urlImage = urlImage;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public Date getPeremption() {
+		return peremption;
+	}
+
+	public void setPeremption(Date peremption) {
+		this.peremption = peremption;
+	}
+
+	public Proprietaire getProprietaire() {
+		return proprietaire;
+	}
+
+	public void setProprietaire(Proprietaire proprietaire) {
+		this.proprietaire = proprietaire;
+	}
+
 }

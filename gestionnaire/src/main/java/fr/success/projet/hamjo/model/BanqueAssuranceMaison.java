@@ -31,8 +31,8 @@ public class BanqueAssuranceMaison {
 	@Column(name = "date")
 	private Date date;
 
-	@Column(name = "magasin", length = 5000, nullable = false)
-	private String magasin;
+	@Column(name = "companie", length = 5000, nullable = false)
+	private String companie;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "type", nullable = false)
@@ -41,5 +41,76 @@ public class BanqueAssuranceMaison {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "proprietaire", nullable = false)
 	private Proprietaire proprietaire;
+
+	public BanqueAssuranceMaison() {
+		super();
+	}
+
+	public BanqueAssuranceMaison(String nom, String urlImage, Date date, String companie, TypeDocument type,
+			Proprietaire proprietaire) {
+		super();
+		this.nom = nom;
+		this.urlImage = urlImage;
+		this.date = date;
+		this.companie = companie;
+		this.type = type;
+		this.proprietaire = proprietaire;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getUrlImage() {
+		return urlImage;
+	}
+
+	public void setUrlImage(String urlImage) {
+		this.urlImage = urlImage;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public String getCompanie() {
+		return companie;
+	}
+
+	public void setCompanie(String companie) {
+		this.companie = companie;
+	}
+
+	public TypeDocument getType() {
+		return type;
+	}
+
+	public void setType(TypeDocument type) {
+		this.type = type;
+	}
+
+	public Proprietaire getProprietaire() {
+		return proprietaire;
+	}
+
+	public void setProprietaire(Proprietaire proprietaire) {
+		this.proprietaire = proprietaire;
+	}
 
 }

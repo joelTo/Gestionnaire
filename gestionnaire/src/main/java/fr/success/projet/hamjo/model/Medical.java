@@ -39,4 +39,66 @@ public class Medical {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "proprietaire", nullable = false)
 	private Proprietaire proprietaire;
+
+	public Medical() {
+		super();
+	}
+
+	public Medical(String nom, String urlImage, Date date, TypeMedical type, Proprietaire proprietaire) {
+		super();
+		this.nom = nom;
+		this.urlImage = urlImage;
+		this.date = date;
+		this.type = type;
+		this.proprietaire = proprietaire;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getUrlImage() {
+		return urlImage;
+	}
+
+	public void setUrlImage(String urlImage) {
+		this.urlImage = urlImage;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public TypeMedical getType() {
+		return type;
+	}
+
+	public void setType(TypeMedical type) {
+		this.type = type;
+	}
+
+	public Proprietaire getProprietaire() {
+		return proprietaire;
+	}
+
+	public void setProprietaire(Proprietaire proprietaire) {
+		this.proprietaire = proprietaire;
+	}
+
 }

@@ -50,4 +50,93 @@ public class Facture {
 	@Column(name = "prix", nullable = false)
 	private BigDecimal prix;
 
+	public Facture() {
+		super();
+	}
+
+	public Facture(String nom, String urlImage, Date date, String magasin, TypeArticle type, Proprietaire proprietaire,
+			Date garantie, BigDecimal prix) {
+		super();
+		this.nom = nom;
+		this.urlImage = urlImage;
+		this.date = date;
+		this.magasin = magasin;
+		this.type = type;
+		this.proprietaire = proprietaire;
+		this.garantie = garantie;
+		this.prix = prix;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getUrlImage() {
+		return urlImage;
+	}
+
+	public void setUrlImage(String urlImage) {
+		this.urlImage = urlImage;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public String getMagasin() {
+		return magasin;
+	}
+
+	public void setMagasin(String magasin) {
+		this.magasin = magasin;
+	}
+
+	public TypeArticle getType() {
+		return type;
+	}
+
+	public void setType(TypeArticle type) {
+		this.type = type;
+	}
+
+	public Proprietaire getProprietaire() {
+		return proprietaire;
+	}
+
+	public void setProprietaire(Proprietaire proprietaire) {
+		this.proprietaire = proprietaire;
+	}
+
+	public Date getGarantie() {
+		return garantie;
+	}
+
+	public void setGarantie(Date garantie) {
+		this.garantie = garantie;
+	}
+
+	public BigDecimal getPrix() {
+		return prix;
+	}
+
+	public void setPrix(BigDecimal prix) {
+		this.prix = prix;
+	}
+
 }
