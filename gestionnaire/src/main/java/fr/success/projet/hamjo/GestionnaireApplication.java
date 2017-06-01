@@ -1,5 +1,11 @@
 package fr.success.projet.hamjo;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +16,12 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import com.opencsv.CSVReader;
+import com.opencsv.CSVWriter;
+import com.opencsv.bean.CsvToBean;
+import com.opencsv.bean.HeaderColumnNameMappingStrategy;
+
+import fr.success.projet.hamjo.model.CarBean;
 import fr.success.projet.hamjo.repositories.IDocumentadminRepositories;
 import fr.success.projet.hamjo.repositories.IFactureRepositories;
 
@@ -40,6 +52,8 @@ public class GestionnaireApplication {
 	 * La Securité de l'application est genere ici
 	 * 
 	 * @param args
+	 * @throws Exception
+	 * @throws FileNotFoundException
 	 */
 	// @Configuration
 	// static class SecurityConfig extends GlobalAuthenticationConfigurerAdapter
@@ -51,9 +65,40 @@ public class GestionnaireApplication {
 	// }
 	// }
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException, Exception {
 		SpringApplication.run(GestionnaireApplication.class, args);
 		System.out.println("Test je suis entraon de marche");
+
+		String[] items1 = { "book", "coin", "pencil" };
+		String[] items2 = { "pen", "chair", "lamp" };
+		String[] items3 = { "ball", "bowl", "spectacles" };
+
+		List<String[]> entries = new ArrayList<>();
+		entries.add(items1);
+		entries.add(items2);
+		entries.add(items3);
+
+		String fileName2 = "src/main/resources/items.csv";
+
+		try (CSVWriter writer = new CSVWriter(new FileWriter(fileName2))) {
+			writer.writeAll(entries);
+		}
+
+		String fileName = "src/main/resources/cars.csv";
+
+		try (CSVReader reader = new CSVReader(new FileReader(fileName))) {
+
+			HeaderColumnNameMappingStrategy<CarBean> strategy = new HeaderColumnNameMappingStrategy<>();
+			strategy.setType(CarBean.class);
+
+			CsvToBean<CarBean> csvToBean = new CsvToBean<>();
+			List<CarBean> beanList = csvToBean.parse(strategy, reader);
+
+			for (CarBean bean : beanList) {
+				System.out.println(bean);
+			}
+		}
+
 	}
 
 	@Autowired

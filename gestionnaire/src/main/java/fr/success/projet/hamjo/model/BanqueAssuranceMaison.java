@@ -13,31 +13,40 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.opencsv.bean.CsvBindByName;
+
 @Entity
 @Table(name = "banqueassurancemaison")
 public class BanqueAssuranceMaison {
+	@CsvBindByName
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
 
+	@CsvBindByName
 	@Column(name = "nom", length = 5000, nullable = false)
 	private String nom;
 
+	@CsvBindByName
 	@Column(name = "url", length = 5000)
 	private String urlImage;
 
+	@CsvBindByName
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "date")
 	private Date date;
 
+	@CsvBindByName
 	@Column(name = "companie", length = 5000, nullable = false)
 	private String companie;
 
+	@CsvBindByName
 	@Enumerated(EnumType.STRING)
 	@Column(name = "type", nullable = false)
 	private TypeDocument type;
 
+	@CsvBindByName
 	@Enumerated(EnumType.STRING)
 	@Column(name = "proprietaire", nullable = false)
 	private Proprietaire proprietaire;
