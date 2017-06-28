@@ -3,7 +3,9 @@ package fr.success.projet.hamjo;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -22,6 +24,10 @@ import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.HeaderColumnNameMappingStrategy;
 
 import fr.success.projet.hamjo.model.CarBean;
+import fr.success.projet.hamjo.model.DocAdmin;
+import fr.success.projet.hamjo.model.Facture;
+import fr.success.projet.hamjo.model.Proprietaire;
+import fr.success.projet.hamjo.model.TypeArticle;
 import fr.success.projet.hamjo.repositories.IDocumentadminRepositories;
 import fr.success.projet.hamjo.repositories.IFactureRepositories;
 
@@ -65,41 +71,14 @@ public class GestionnaireApplication {
 	// }
 	// }
 
-	public static void main(String[] args) throws FileNotFoundException, Exception {
+	public static void main(String[] args) {
 		SpringApplication.run(GestionnaireApplication.class, args);
 		System.out.println("Test je suis entraon de marche");
 
-		String[] items1 = { "book", "coin", "pencil" };
-		String[] items2 = { "pen", "chair", "lamp" };
-		String[] items3 = { "ball", "bowl", "spectacles" };
-
-		List<String[]> entries = new ArrayList<>();
-		entries.add(items1);
-		entries.add(items2);
-		entries.add(items3);
-
-		String fileName2 = "src/main/resources/items.csv";
-
-		try (CSVWriter writer = new CSVWriter(new FileWriter(fileName2))) {
-			writer.writeAll(entries);
+		
 		}
 
-		String fileName = "src/main/resources/cars.csv";
-
-		try (CSVReader reader = new CSVReader(new FileReader(fileName))) {
-
-			HeaderColumnNameMappingStrategy<CarBean> strategy = new HeaderColumnNameMappingStrategy<>();
-			strategy.setType(CarBean.class);
-
-			CsvToBean<CarBean> csvToBean = new CsvToBean<>();
-			List<CarBean> beanList = csvToBean.parse(strategy, reader);
-
-			for (CarBean bean : beanList) {
-				System.out.println(bean);
-			}
-		}
-
-	}
+	
 
 	@Autowired
 	private IFactureRepositories factureResource;
@@ -110,15 +89,14 @@ public class GestionnaireApplication {
 	@PostConstruct
 	public void setDatabase() {
 
-		// factureResource.save(new Facture("DARTY", "Lave", "1111111"));
-		// factureResource.save(new Facture("DARTY", "Machine", "11122211"));
-		// factureResource.save(new Facture("DARTY", "piscine", "1155511"));
-		//
-		// documentResource.save(new DocAdmin("CARTE_IDENTITE", "33"));
-		// documentResource.save(new DocAdmin("PASSEPORT", "444"));
-		//
-		// UserResources.save(new UserJo("joel", 26));
-		// UserResources.save(new UserJo("Edwina", 26));
+		 factureResource.save(new Facture("lave_Linge", "C:/document/lave_linge", new Date(), "DARTY", TypeArticle.ELECTROMENAGER, Proprietaire.ENSEMBLE, new Date(), new BigDecimal(456.00)));
+		 factureResource.save(new Facture("Machine", "C:/document/Machine", new Date(), "DARTY", TypeArticle.ELECTROMENAGER, Proprietaire.ENSEMBLE, new Date(), new BigDecimal(145.00)));
+		 factureResource.save(new Facture("Pese-personne", "C:/document/lave_linge", new Date(), "DARTY", TypeArticle.ELECTROMENAGER, Proprietaire.ENSEMBLE, new Date(), new BigDecimal(79.50)));
+		 
+		 documentResource.save(new DocAdmin("CARTE_IDENTITE", "C:/document/carte_identite_dou", new Date(), new Date(), Proprietaire.DOU));
+		 documentResource.save(new DocAdmin("CARTE_IDENTITE", "C:/document/carte_identite_douna", new Date(), new Date(), Proprietaire.DOUNA));
+		 documentResource.save(new DocAdmin("PASSEPORT", "C:/document/Passeport", new Date(), new Date(), Proprietaire.DOU));
+		
 	}
 
 }

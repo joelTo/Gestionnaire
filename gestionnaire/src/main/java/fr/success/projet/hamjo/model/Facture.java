@@ -67,6 +67,8 @@ public class Facture {
 		this.prix = prix;
 	}
 
+
+
 	public Integer getId() {
 		return id;
 	}

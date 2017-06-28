@@ -2,7 +2,9 @@ export default class DocumentController{
 
     constructor(DocumentService, PanierService){
             this.DocumentService = DocumentService;
+            console.log(this.DocumentService)
             this.PanierService = PanierService;
+            console.log(this.PanierService)
         }
 
        $onInit(){
@@ -22,6 +24,7 @@ export default class DocumentController{
 
      afficherModale(Document) {
         this.currentDocument = document;
+        console.log(document)
      }
 
      ajouterPanier(document) {

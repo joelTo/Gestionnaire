@@ -21,6 +21,7 @@ public class DocumentAdminResource {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public List<DocAdmin> listAllDocumentAdmins() {
+		System.out.println(documentDao.findAll().toString());
 		return documentDao.findAll();
 	}
 

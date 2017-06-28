@@ -99,5 +99,11 @@ public class DocAdmin {
 	public void setProprietaire(Proprietaire proprietaire) {
 		this.proprietaire = proprietaire;
 	}
+	@Override
+	public String toString(){
+		return "{"+nom+" "+urlImage+" "+date.toString()+" "+peremption.toString()+" "+proprietaire.toString()+"}";
+		
+		
+	}
 
 }
