@@ -7,8 +7,11 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>name</th>
-                        <th>blob</th>
+                        <th>nom</th>
+                        <th>urlImage</th>
+                        <th>date</th>
+                        <th>peremption</th>
+                        <th>proprietaire</th>
                         <th width="100"></th>
                         <th width="100"></th>
                     </tr>
@@ -16,8 +19,11 @@
                     <tbody>
                     <tr ng-repeat="u in $ctrl.documents">
                         <td>{{u.id}}</td>
-                        <td>{{u.name}}</td>
-                        <td>{{u.blob}}</td>
+                        <td>{{u.nom}}</td>
+                        <td>{{u.urlImage}}</td>
+                        <td>{{u.date}}</td>
+                        <td>{{u.peremption}}</td>
+                        <td>{{u.proprietaire}}</td>
                         <td><button type="button" ng-click="ctrl.editUser(u.id)" class="btn btn-success custom-width">Editer</button></td>
                         <td><button type="button" ng-click="ctrl.removeUser(u.id)" class="btn btn-danger custom-width">Supprimer</button></td>
                     </tr>
@@ -32,37 +38,37 @@
     name="documentForm" novalidate ng-submit="$ctrl.saveDocument($ctrl.document)" class="well">
 
     <div class="form-group">
-        <label for="name">Nom</label>
-        <input ng-model="$ctrl.document.name" 
+        <label for="nom">Nom</label>
+        <input ng-model="$ctrl.document.nom" 
         
-            id="name" type="text" class="form-control">
+            id="nom" type="text" class="form-control">
     </div>
     <div class="form-group">
-        <label for="datevalidite">dateValidite</label>
-        <input ng-model="$ctrl.document.dateValidite" 
+        <label for="urlImage">urlImage</label>
+        <input ng-model="$ctrl.document.urlImage" 
             
-            id="dateValidite" type="text" class="form-control">
+            id="urlImage" type="text" class="form-control">
     </div>
      <div class="form-group">
-        <label for="blob">blob</label>
-        <input ng-model="$ctrl.document.blob" 
+        <label for="date">date</label>
+        <input ng-model="$ctrl.document.date" 
             
-            id="blob" type="text" class="form-control">
+            id="date" type="date" class="form-control">
+    </div>
+         <div class="form-group">
+        <label for="peremption">peremption</label>
+        <input ng-model="$ctrl.document.peremption" 
+             
+            id="peremption" type="date" class="form-control">
+    </div>
+
     </div>
          <div class="form-group">
         <label for="proprietaire">proprietaire</label>
         <input ng-model="$ctrl.document.proprietaire" 
              
             id="proprietaire" type="text" class="form-control">
-    </div>
-        </div>
-         <div class="form-group">
-        <label for="categorie">categorie</label>
-        <input ng-model="$ctrl.document.categorie" 
-            
-            id="categorie" type="text" class="form-control">
-    </div>
-
+</div>
 
 
     <button type="submit" class="btn btn-primary">Enregistrer</button>

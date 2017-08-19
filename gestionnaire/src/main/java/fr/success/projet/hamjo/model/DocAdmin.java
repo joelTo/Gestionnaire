@@ -13,6 +13,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.apache.commons.lang.StringUtils;
+
 @Entity
 @Table(name = "docadmin")
 public class DocAdmin {
@@ -101,9 +103,32 @@ public class DocAdmin {
 	}
 	@Override
 	public String toString(){
-		return "{"+nom+" "+urlImage+" "+date.toString()+" "+peremption.toString()+" "+proprietaire.toString()+"}";
+		String ldate= null;
+		String lperemption = null;
+		String lproprietaire= null;
+		if(date==null){
+			  ldate=StringUtils.EMPTY;
+		}else {
+			ldate= date.toString();
+		}
+		if(peremption==null){
+			lperemption= StringUtils.EMPTY;
+		}else{
+			lperemption = peremption.toString();
+		}
+		if(proprietaire==null){
+			lproprietaire=StringUtils.EMPTY;
+		}else {
+			lproprietaire = proprietaire.toString();
+		}
+		return "{"+stringValide(nom)+" "+stringValide(urlImage)+" "+stringValide(ldate)+
+				" "+stringValide(lperemption)+" "+stringValide(lproprietaire)+"}";
 		
 		
+	}
+	
+	protected String stringValide(final String pElement){
+		return (StringUtils.isNotBlank(pElement)) ? pElement:StringUtils.EMPTY;
 	}
 
 }
